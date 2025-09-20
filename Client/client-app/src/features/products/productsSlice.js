@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const res = await fetch('https://localhost:7271/api/v1/Products/categories');
+    const res = await fetch('http://server1.roymdev.com/api/v1/Products/categories');
     const data = await res.json();
 
     console.log("📦 API Response (categories):", data); 

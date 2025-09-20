@@ -8,8 +8,21 @@ const app = express();
 
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://mod.roymdev.com'
+];
+
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('CORS not allowed for this origin'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type']
 }));

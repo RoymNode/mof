@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000") 
+            policy.WithOrigins("http://mod.roymdev.com", "http://localhost:3000") 
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -34,11 +34,11 @@ builder.Services.AddScoped<IDAL, DAL>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors("AllowReactApp");
 app.UseHttpsRedirection();

@@ -21,7 +21,7 @@ export default function ShoppingPage({ onNext }) {
   const fetchProductsByCategory = async (categoryId) => {
     try {
       const res = await fetch(
-        `https://localhost:7271/api/v1/Products/products?categoryId=${categoryId}`
+        `http://server1.roymdev.com/api/v1/Products/products?categoryId=${categoryId}`
       );
       if (!res.ok) throw new Error('שגיאה בטעינת מוצרים');
       const data = await res.json();

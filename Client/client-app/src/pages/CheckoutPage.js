@@ -16,7 +16,7 @@ export default function CheckoutPage() {
 
     const order = { ...form, products: cart };
 
-    const res = await fetch('http://localhost:5000/api/orders', {
+    const res = await fetch('http://server2.roymdev.com/api/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(order),
